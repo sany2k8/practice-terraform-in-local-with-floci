@@ -35,7 +35,6 @@ experiments/                 # each subfolder is its OWN terraform root
   sns-to-sqs/                # module "sns" + "sqs" wired for fan-out
 scripts/
   tf  awslocal.sh  new-service.sh  new-experiment.sh  services.sh
-.claude/skills/              # the terraform-floci-service skill (ships with repo)
 ```
 
 > Why separate directories? Terraform merges *all* `.tf` files in one directory
@@ -68,8 +67,7 @@ Each experiment's own `README.md` has its specific run/verify commands (e.g.
 # Experiment with ANY of Floci's ~70 free services
 
 Everything Floci emulates is free, unlimited, and local. There's **no pre-built
-module for every service** — you add the ones you want, when you want them. Two
-easy paths:
+module for every service** — you add the ones you want, when you want them.
 
 ## See what's available first
 
@@ -80,15 +78,7 @@ curl -s http://localhost:4566/_localstack/health    # raw JSON
 
 Full catalog also at https://floci.io/aws/#services.
 
-## Option A — Just ask Claude (easiest)
-
-Say what you want, e.g. *"add a KMS module and a Secrets Manager secret that uses
-it"* or *"let me practice Lambda triggered by SQS"*. The
-**`terraform-floci-service`** skill (in `.claude/skills/`, so it ships with this
-repo) builds the `modules/<service>/`, creates an `experiments/<name>/` root that
-uses it, applies, and verifies with the CLI.
-
-## Option B — By hand (two commands + fill in the blanks)
+## How to add a new service/experiment (two commands + fill in the blanks)
 
 ```bash
 # 1. Scaffold a reusable module for the service
@@ -112,7 +102,7 @@ cd experiments/kms-basics && ./tf init && ./tf apply
 `new-experiment.sh` wires up the `providers.tf`/`versions.tf`/`tf` symlinks for
 you, so an experiment is ready to run immediately.
 
-### The rules (see [CLAUDE.md](CLAUDE.md) for the full set)
+### The rules
 
 - **One service = one module**; keep each module focused on its own service.
 - **Never** put a `provider` block, `endpoints`, or credentials inside a module —
