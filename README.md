@@ -41,17 +41,24 @@ scripts/
 > and applies them together. Giving each experiment its own root means one `apply`
 > touches only that experiment — and its state is isolated.
 
-## Run an experiment
+## Run an existing experiment
 
 ```bash
 cd experiments/sns-to-sqs     # pick any experiment
 ./tf init                     # ./tf is a symlink to scripts/tf (sets AWS_ENDPOINT_URL)
-./tf apply
-./tf destroy
+./tf plan                     # to see what will be created
+./tf apply                    # to create the resources
+./tf destroy                  # to destroy the resources
 ```
 
-Inspect what got created (from anywhere):
+Inspect what got created (from anywhere): to find the name of the resources, you can use the following commands:
 
+List service keys in AWS:
+```bash
+./scripts/services.sh
+```
+
+List resources in a service:
 ```bash
 ./scripts/awslocal.sh s3 ls
 ./scripts/awslocal.sh dynamodb list-tables
