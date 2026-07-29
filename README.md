@@ -10,11 +10,29 @@ one at a time, without provider changes:
 - **`experiments/`** — a separate Terraform root per experiment, each reusing the
   modules. Apply and destroy each one independently.
 
-## Prerequisites
+## Prerequisites & Setup
 
-- Floci running in Docker: `docker ps` → container `floci`, port `4566`
-- Terraform: `terraform version`
-- AWS CLI: `aws --version`
+Ensure you have the following tools installed and running before starting experiments:
+
+1. **Docker**
+   - **Installation**: Download and install [Docker Desktop](https://docs.docker.com/get-docker/) (or `brew install --cask docker` on macOS).
+   - **Verify**: `docker --version`
+
+2. **Floci (Local AWS Emulator)**
+   - **Run container**: Start the Floci container on port `4566`:
+     ```bash
+     docker run -d --name floci -p 4566:4566 ghcr.io/floci-io/floci:latest
+     ```
+   - **Verify**: `docker ps` (container `floci` running on port `4566`) or `curl -s http://localhost:4566/_localstack/health`
+   - **Documentation**: [Floci Docs](https://floci.io)
+
+3. **Terraform**
+   - **Installation**: Follow the official [Terraform Install Guide](https://developer.hashicorp.com/terraform/install) (or `brew install hashicorp/tap/terraform` on macOS).
+   - **Verify**: `terraform version`
+
+4. **AWS CLI**
+   - **Installation**: Follow the official [AWS CLI Install Guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) (or `brew install awscli` on macOS).
+   - **Verify**: `aws --version`
 
 ## How the Floci wiring works
 
