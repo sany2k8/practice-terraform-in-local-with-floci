@@ -1,5 +1,7 @@
 # Practice Terraform locally with Floci
 
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?logo=terraform&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-232F3E?logo=amazon-aws&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white) ![Floci](https://img.shields.io/badge/Floci-0055FF) ![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnu-bash&logoColor=white)
+
 Learn Terraform + AWS with **zero cost and no AWS account**, using
 [Floci](https://floci.io) (a local, open-source AWS emulator) on port `4566`.
 
