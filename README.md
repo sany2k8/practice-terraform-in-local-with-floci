@@ -278,3 +278,11 @@ Look up exact resource arguments in the
 - Kinesis stream + Firehose to S3 (`kinesis` + `firehose` + `s3`)
 - Secrets Manager secret encrypted with a KMS key (`secretsmanager` + `kms`)
 - Step Functions state machine (`states`)
+
+## License
+
+This project is open source and available under the [MIT License](https://github.com/sany2k8/practice-terraform-in-local-with-floci/blob/main/LICENSE).
+
+## Contributing
+
+Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for detailed information on our code of conduct, and the process for submitting pull requests.
