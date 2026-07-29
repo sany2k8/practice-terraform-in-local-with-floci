@@ -46,13 +46,26 @@ variable — so there's **no `endpoints {}` block** and using a new service need
 
 ```
 modules/                     # reusable, one folder per service
-  s3/  dynamodb/  sqs/  sns/  # each: main.tf variables.tf outputs.tf README.md
+  s3/  dynamodb/  sqs/  sns/  rds/  secretsmanager/
+  iam/  kms/  ssm/  kinesis/  logs/
+  lambda/  ecr/  ecs/  eks/   # each: main.tf variables.tf outputs.tf README.md
 experiments/                 # each subfolder is its OWN terraform root
   _shared/                   # providers.tf + versions.tf (symlinked into each)
   s3-basics/                 # module "s3"
   dynamodb-basics/           # module "dynamodb"
   sqs-basics/                # module "sqs"
   sns-to-sqs/                # module "sns" + "sqs" wired for fan-out
+  rds-basics/                # module "rds"
+  secretsmanager-basics/     # module "secretsmanager"
+  iam-basics/                # module "iam" — Lambda execution role
+  kms-basics/                # module "kms" — key + alias
+  ssm-basics/                # module "ssm" — String + SecureString params
+  kinesis-basics/            # module "kinesis" — data stream
+  logs-basics/               # module "logs" — CloudWatch log group + stream
+  lambda-basics/             # module "lambda" + "iam" — Python fn (invokable!)
+  ecr-basics/                # module "ecr" — container registry
+  ecs-basics/                # module "ecs" — cluster + task definition
+  eks-basics/                # module "eks" + "iam" — Kubernetes control plane (+VPC)
 scripts/
   tf  awslocal.sh  new-service.sh  new-experiment.sh  services.sh
 ```
