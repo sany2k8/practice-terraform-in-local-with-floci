@@ -101,7 +101,7 @@ List resources in a service:
 
 Or, check the Floci UI on port `4500` (`http://localhost:4500`):
 
-<details>
+<details open>
 <summary>📸 Click to expand Floci UI screenshot</summary>
 
 ![Floci UI](./floci-local-cloud-ui.png)
