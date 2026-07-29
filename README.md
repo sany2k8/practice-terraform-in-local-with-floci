@@ -99,9 +99,14 @@ List resources in a service:
 ./scripts/awslocal.sh sns list-topics
 ```
 
-Or, check the Floci UI on port `4500` (`http://localhost:4500`)
+Or, check the Floci UI on port `4500` (`http://localhost:4500`):
 
-[Floci UI](./floci-local-cloud-ui.png)
+<details>
+<summary>📸 Click to expand Floci UI screenshot</summary>
+
+![Floci UI](./floci-local-cloud-ui.png)
+
+</details>
 
 Each experiment's own `README.md` has its specific run/verify commands (e.g.
 `sns-to-sqs` shows how to publish a message and receive it from the queue).
