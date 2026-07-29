@@ -6,10 +6,10 @@ resource "aws_ecs_cluster" "this" {
 # A task definition describing which container(s) to run. Uses the EC2 launch
 # type with bridge networking to keep the lab free of VPC/execution-role setup.
 resource "aws_ecs_task_definition" "this" {
-  family             = var.family
-  network_mode       = "bridge"
-  cpu                = var.cpu
-  memory             = var.memory
+  family                   = var.family
+  network_mode             = "bridge"
+  cpu                      = var.cpu
+  memory                   = var.memory
   requires_compatibilities = ["EC2"]
 
   container_definitions = jsonencode([{

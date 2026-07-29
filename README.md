@@ -1,6 +1,6 @@
 # Practice Terraform locally with Floci
 
-![Terraform](https://img.shields.io/badge/Terraform-7B42BC?logo=terraform&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-232F3E?logo=amazon-aws&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white) ![Floci](https://img.shields.io/badge/Floci-0055FF) ![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnu-bash&logoColor=white)
+[![CI](https://github.com/sany2k8/practice-terraform-in-local-with-floci/actions/workflows/ci.yml/badge.svg)](https://github.com/sany2k8/practice-terraform-in-local-with-floci/actions/workflows/ci.yml) ![Terraform](https://img.shields.io/badge/Terraform-7B42BC?logo=terraform&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-232F3E?logo=amazon-aws&logoColor=white) ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white) ![Floci](https://img.shields.io/badge/Floci-0055FF) ![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnu-bash&logoColor=white)
 
 Learn Terraform + AWS with **zero cost and no AWS account**, using
 [Floci](https://floci.io) (a local, open-source AWS emulator) on port `4566`.
@@ -110,6 +110,17 @@ Or, check the Floci UI on port `4500` (`http://localhost:4500`):
 
 Each experiment's own `README.md` has its specific run/verify commands (e.g.
 `sns-to-sqs` shows how to publish a message and receive it from the queue).
+
+## Continuous Integration
+
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on every push/PR:
+
+1. **lint** — `terraform fmt -check` + `shellcheck` on the scripts.
+2. **validate** — `terraform validate` on every experiment (no Floci needed).
+3. **integration** — boots a real Floci container and runs `apply` + `destroy`
+   on **every** experiment, proving the whole lab works end to end — still free,
+   no AWS account. New experiments are picked up automatically (the job loops over
+   `experiments/*/`).
 
 ---
 
