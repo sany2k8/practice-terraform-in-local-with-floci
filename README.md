@@ -23,7 +23,7 @@ Ensure you have the following tools installed and running before starting experi
 2. **Floci (Local AWS Emulator)**
    - **Run container**: Start the Floci container on port `4566`:
      ```bash
-     docker run -d --name floci -p 4566:4566 ghcr.io/floci-io/floci:latest
+     docker run -d --name floci -p 4566:4566 floci/floci:latest
      ```
    - **Verify**: `docker ps` (container `floci` running on port `4566`) or `curl -s http://localhost:4566/_localstack/health`
    - **Documentation**: [Floci Docs](https://floci.io)
